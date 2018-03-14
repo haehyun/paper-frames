@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[all=normal,paragraphs,lists=tight,floats=tight]{savetrees}
+
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-} %hack to force url breaks on "-" in references
+\usepackage[breaklinks,colorlinks]{hyperref}
+
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{paralist}
+\usepackage{arydshln}
+\let\labelindent\relax
+\usepackage{enumitem,amssymb}
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\usepackage{balance}
+\usepackage{endnotes}
+\usepackage{xspace}
+\usepackage{times}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usepackage{cite}
+
+\hypersetup{
+	urlcolor={[rgb]{0,0,1}}, 
+	citecolor={[rgb]{0,0,0.4}}, 
+	linkcolor={[rgb]{0,0,0.4}},
+}
+
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+\graphicspath{{./figs/}}
+
+\newcommand{\comment}[1]{}
+\newcommand{\etc}{\textit{etc.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\tick}{\ding{51}}
+\newcommand{\cross}{\ding{55}}
+
+\setcounter{tocdepth}{3}
+
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+\title{This is a Paper Template}
+\institute{}
+
+\author{}
+
+\maketitle
+\pagestyle{empty}
+
+\begin{abstract}
+	\input{abstract}
+\end{abstract}
+
+\input{intro}
+\input{background}
+\input{design}
+\input{implementation}
+\input{evaluation}
+\input{relatedwork}
+\input{conclusion}
+\input{ack}
+
+
+\bibliographystyle{splncs03}
+\bibliography{reference}
+
+\input{appendix}
+
+
+\end{document}
