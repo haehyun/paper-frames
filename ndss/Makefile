@@ -41,6 +41,7 @@ clean:
 	find . -name "*.out" | xargs rm -f
 	find . -name "*.cut" | xargs rm -f
 	find . -name "*.gz"  | xargs rm -f
+	rm -f figs/*.pdf
 	@\rm -f \
         $(DOC:.tex=.dvi) \
         $(DOC:.tex=.pdf) \
@@ -60,7 +61,7 @@ images: $(IMG_OBJS)
 
 veryclean: clean
 	@\rm -f *~ *.log
-	@\rm -f figures/*.eps
+	@\rm -f figs/*.pdf
 
 tar: pdf
 	@test -d $(TARDIR) || mkdir $(TARDIR)
