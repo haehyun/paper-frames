@@ -25,6 +25,7 @@
 
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{comment}
+\usepackage{pdfcomment}
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -58,16 +59,23 @@
 	linkcolor={[rgb]{0,0,0.4}},
 }
 
-\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
-\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+\newcommand{\Tstrut}{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
 
-\graphicspath{{./figs/}}
+\newcommand{\commentontext}[2]{\colorbox{yellow}{#1}\pdfcomment[color={0.234 0.867 0.211},hoffset=-6pt,voffset=10pt,opacity=0.5]{#2}}
+\newcommand{\commentatside}[1]{\pdfcomment[color={0.045 0.278 0.643},icon=Note]{#1}}
+% Compatibality with packages todo, easy-todo, todonotes
+\newcommand{\todo}[1]{\commentatside{#1}}
+% Compatiblity with package fixmetodonotes
+\newcommand{\TODO}[1]{\commentatside{#1}}
 
 \newcommand{\comment}[1]{}
 \newcommand{\etc}{\textit{etc.}}
 \newcommand{\ie}{\textit{i.e.}}
 \newcommand{\tick}{\ding{51}}
 \newcommand{\cross}{\ding{55}}
+
+\graphicspath{{./figs/}}
 
 \setcounter{tocdepth}{3}
 
