@@ -1,9 +1,52 @@
 \documentclass{ieeeaccess}
 \usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsmath,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-} %hack to force url breaks on "-" in references
+
+\usepackage[colorlinks,
+	linkcolor={[rgb]{0,0,0.4}},
+	urlcolor ={[rgb]{0,0,1}}, 
+	citecolor={[rgb]{0,0,0.4}},
+	]{hyperref}
+
+\usepackage{hyperref}
+\renewcommand{\sectionautorefname}{\S}
+\renewcommand{\subsectionautorefname}{\S}
+\renewcommand{\subsubsectionautorefname}{\S}
+
+
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{paralist}
+\usepackage{arydshln}
+\let\labelindent\relax
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{balance}
+\usepackage{endnotes}
+\usepackage{xspace}
+\usepackage{times}
+\usepackage{pifont}
+\usepackage{wasysym}
+% \usepackage{tikz}
+% \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
