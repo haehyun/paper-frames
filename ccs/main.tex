@@ -18,7 +18,18 @@
 \usepackage{url}
 \usepackage{breakurl}
 \def\UrlBreaks{\do\/\do-} %hack to force url breaks on "-" in references
-% \usepackage[breaklinks,colorlinks]{hyperref}
+% \usepackage[breaklinks, colorlinks]
+
+\usepackage[colorlinks,
+	linkcolor={[rgb]{0,0,0.4}},
+	urlcolor ={[rgb]{0,0,1}}, 
+    citecolor={[rgb]{0,0,0.4}}, 
+    ]{hyperref}
+
+\usepackage{hyperref}
+\renewcommand{\sectionautorefname}{\S}
+\renewcommand{\subsectionautorefname}{\S}
+\renewcommand{\subsubsectionautorefname}{\S}
 
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{comment}
@@ -50,21 +61,16 @@
 \usepackage{tikz}
 % \usepackage{cite}
 
-\hypersetup{
-	urlcolor={[rgb]{0,0,1}}, 
-	citecolor={[rgb]{0,0,0.4}}, 
-	linkcolor={[rgb]{0,0,0.4}},
-}
 
 \newcommand{\Tstrut}{\rule{0pt}{2.6ex}}         % = `top' strut
 \newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
 
-\newcommand{\commentontext}[2]{\colorbox{yellow}{#1}\pdfcomment[color={0.234 0.867 0.211},hoffset=-6pt,voffset=10pt,opacity=0.5]{#2}}
-\newcommand{\commentatside}[1]{\pdfcomment[color={0.045 0.278 0.643},icon=Note]{#1}}
+% \newcommand{\commentontext}[2]{\colorbox{yellow}{#1}\pdfcomment[color={0.234 0.867 0.211},hoffset=-6pt,voffset=10pt,opacity=0.5]{#2}}
+% \newcommand{\commentatside}[1]{\pdfcomment[color={0.045 0.278 0.643},icon=Note]{#1}}
 % Compatibality with packages todo, easy-todo, todonotes
-\newcommand{\todo}[1]{\commentatside{#1}}
+% \newcommand{\todo}[1]{\commentatside{#1}}
 % Compatiblity with package fixmetodonotes
-\newcommand{\TODO}[1]{\commentatside{#1}}
+% \newcommand{\TODO}[1]{\commentatside{#1}}
 
 \newcommand{\etc}{\textit{etc.}}
 \newcommand{\ie}{\textit{i.e.}}

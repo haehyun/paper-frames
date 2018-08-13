@@ -40,6 +40,8 @@ clean:
 	find . -name "*.log" | xargs rm -f
 	find . -name "*.out" | xargs rm -f
 	find . -name "*.cut" | xargs rm -f
+	find . -name "*.upa" | xargs rm -f
+	find . -name "*.upb" | xargs rm -f
 	find . -name "*.gz"  | xargs rm -f
 	@\rm -f \
         $(DOC:.tex=.dvi) \
