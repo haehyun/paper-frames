@@ -46,8 +46,10 @@
 \usepackage{pifont}
 \usepackage{wasysym}
 \usepackage{tikz}
-\usepackage{cite}
-
+% \usepackage{cite}
+\usepackage[noadjust]{cite}
+\renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
+\renewcommand{\citedash}{--}
 
 \newcommand{\Tstrut}{\rule{0pt}{2.6ex}}         % = `top' strut
 \newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
@@ -90,7 +92,7 @@
 \input{ack}
 
 
-\bibliographystyle{abbrv}
+\bibliographystyle{IEEEtranS}
 \bibliography{references}
 
 \appendices
