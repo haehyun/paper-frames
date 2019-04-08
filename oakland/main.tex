@@ -49,6 +49,10 @@
 \renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
 \renewcommand{\citedash}{--}
 
+% to prevent "\pdfendlink ended up in different nesting level than \pdfstartlink" error.
+\let\oldbibitem\bibitem
+\def\bibitem{\vfill\oldbibitem}
+
 \newcommand{\Tstrut}{\rule{0pt}{2.6ex}}         % = `top' strut
 \newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
 
