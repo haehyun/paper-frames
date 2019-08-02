@@ -8,6 +8,10 @@
 % guidelines.
 % It will automatically select two-column mode and the Times-Roman
 % font.
+%
+% 2018-12-19 [for ATC'19]: add packages to help embed all fonts in
+%   pdf; to improve appearance (hopefully); to make refs and citations
+%   clickable in pdf
 
 %
 % USENIX papers are two-column.
@@ -16,6 +20,28 @@
 
 \if@twocolumn\else\input twocolumn.sty\fi
 \usepackage{mathptmx}  % times roman, including math (where possible)
+
+% hopefully embeds all fonts in pdf
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pslatex}
+
+% appearance
+\usepackage[kerning,spacing]{microtype} % more compact and arguably nicer
+\usepackage{flushend} % make cols in last page equal in size
+
+% refs and bib
+\usepackage{cite}               % order multiple entries in \cite{...}
+\usepackage{breakurl}           % break too-long urls in refs
+\usepackage{url}                % allow \url in bibtex for clickable links
+\usepackage{xcolor}             % color definitions, to be use for...
+\usepackage[]{hyperref}         % ...clickable refs within pdf...
+\hypersetup{                    % ...like so
+  colorlinks,
+  linkcolor={green!80!black},
+  citecolor={red!70!black},
+  urlcolor={blue!70!black}
+}
 
 %
 % USENIX wants margins of: 0.75" sides, 1" bottom, and 1" top.
