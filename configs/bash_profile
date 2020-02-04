@@ -1,0 +1,65 @@
+# aliases
+alias cd..="cd .."
+alias l="ls -al"
+alias lp="ls -p"
+alias h=history
+alias c=clear
+alias f='open -a Finder ./'
+alias view='open -a Preview '
+alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app" 'http://google.com/''
+alias code='/usr/bin/open -a "/Applications/Visual Studio Code.app" '
+
+edit () { sublime "$@" ; }
+skim () { /usr/bin/open -a "/Applications/Skim.app" "$@" ; }
+
+alias qfind="find . -name "                 # qfind:    Quickly search for file
+ff () { /usr/bin/find . -name "$@" ; }
+ffs () { /usr/bin/find . -name "$@"'*' ; }
+ffe () { /usr/bin/find . -name '*'"$@" ; }
+
+#   extract:  Extract most know archives with one command
+#   ---------------------------------------------------------
+    extract () {
+        if [ -f $1 ] ; then
+          case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+             esac
+         else
+             echo "'$1' is not a valid file"
+         fi
+    }
+
+
+# Setting LaTex
+export PATH="/usr/local/texlive/2016/bin/x86_64-darwin/:${PATH}"
+export PATH="$PATH:/usr/local/bin/"
+export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# PS1='\[\033[01;32m\]haehyun\] @ \[\033[01;32m\]mbp[\033[00m\]$ '
+PS1='\[\033[01;32m\]haehyun@mbp\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# configure my multi-line prompt
+#PS1='
+#\[\033[00m\]$PWD\]
+#\[\033[01;32m\]$\] '
+
+#PS1='
+#\[\e[01;32m\]$PWD
+#haehyun@mbp\$\[\e[0m\] '
+
+# export PS1="\[\e[01;32m\]\w \nhaehyun@mbp\$\[\e[0m\] "
+
