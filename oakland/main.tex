@@ -5,16 +5,18 @@
 \def\UrlBreaks{\do\/\do-} %hack to force url breaks on "-" in references
 % \usepackage[breaklinks, colorlinks]
 
-\usepackage[colorlinks,
-	linkcolor={[rgb]{0,0,0.4}},
-	urlcolor ={[rgb]{0,0,1}}, 
-    citecolor={[rgb]{0,0,0.4}}, 
-    ]{hyperref}
-
 \usepackage{hyperref}
 \renewcommand{\sectionautorefname}{\S}
 \renewcommand{\subsectionautorefname}{\S}
 \renewcommand{\subsubsectionautorefname}{\S}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={[rgb]{0,0,0.4}},
+    citecolor={[rgb]{0,0,0.4}},
+    urlcolor={[rgb]{0,0,1}},
+    breaklinks=true,
+}
 
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{comment}
