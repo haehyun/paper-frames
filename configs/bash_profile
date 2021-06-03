@@ -6,6 +6,8 @@ alias h=history
 alias c=clear
 alias f='open -a Finder ./'
 alias view='open -a Preview '
+alias scuva='ssh -l hcho portal.cs.virginia.edu'
+# alias scuva='ssh -l hcho 128.143.71.59 -J hcho@portal.cs.virginia.edu'
 alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app" 'http://google.com/''
 alias code='/usr/bin/open -a "/Applications/Visual Studio Code.app" '
 
@@ -16,6 +18,8 @@ alias qfind="find . -name "                 # qfind:    Quickly search for file
 ff () { /usr/bin/find . -name "$@" ; }
 ffs () { /usr/bin/find . -name "$@"'*' ; }
 ffe () { /usr/bin/find . -name '*'"$@" ; }
+
+alias connect-vm-1604='ssh -p 2201 deepc@localhost'
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
@@ -63,3 +67,5 @@ PS1='\[\033[01;32m\]haehyun@mbp\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # export PS1="\[\e[01;32m\]\w \nhaehyun@mbp\$\[\e[0m\] "
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
