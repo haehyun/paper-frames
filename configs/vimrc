@@ -49,6 +49,21 @@ set showmatch
 
 syntax enable
 
+" to fix cursor shape in WSL bash add
+" echo -ne "\e[2 q"
+" to .bashrc
+if &term =~ "xterm"
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
+
+" Fix vim cursor shape in tmux
+if exists("$TMUX")
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+endif
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -70,6 +85,11 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
+
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature  
+  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
