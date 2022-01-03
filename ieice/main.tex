@@ -1,0 +1,135 @@
+%% template for IEICE Transactions
+%% v2.1 [2015/10/31]
+\documentclass[paper]{ieice}
+%\documentclass[invited]{ieice}
+%\documentclass[position]{ieice}
+%\documentclass[survey]{ieice}
+%\documentclass[invitedsurvey]{ieice}
+%\documentclass[review]{ieice}
+%\documentclass[tutorial]{ieice}
+%\documentclass[letter]{ieice}
+%\documentclass[brief]{ieice}
+%\usepackage[dvips]{graphicx}
+%\usepackage[pdftex]{graphicx,xcolor}
+
+
+% \usepackage[dvipdfmx]{graphicx,xcolor}
+% \usepackage[fleqn]{amsmath}
+% \usepackage{newtxtext}
+% \usepackage[varg]{newtxmath}
+
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-} %hack to force url breaks on "-" in references
+% \usepackage[breaklinks, colorlinks]
+
+\usepackage{hyperref}
+% \renewcommand{\sectionautorefname}{\S}
+% \renewcommand{\subsectionautorefname}{\S}
+% \renewcommand{\subsubsectionautorefname}{\S}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={[rgb]{0,0,0.4}},
+    citecolor={[rgb]{0,0,0.4}},
+    urlcolor={[rgb]{0,0,1}},
+    breaklinks=true,
+}
+
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{comment}
+\usepackage{soul, color}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{paralist}
+\usepackage{arydshln}
+\let\labelindent\relax
+\usepackage{enumitem,amssymb}
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\usepackage{balance}
+\usepackage{endnotes}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usepackage{cite}
+
+% to prevent "\pdfendlink ended up in different nesting level than \pdfstartlink" error.
+\let\oldbibitem\bibitem
+\def\bibitem{\vfill\oldbibitem}
+
+\newcommand{\Tstrut}{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+\newcommand{\etc}{\textit{etc.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\tick}{\ding{51}}
+\newcommand{\cross}{\ding{55}}
+
+\graphicspath{{./figs/}}
+
+
+
+\setcounter{page}{1}
+%\breakauthorline{}% breaks lines after the n-th author
+
+\field{D}
+%\SpecialIssue{}
+%\SpecialSection{}
+%\theme{}
+\title{This is the title}
+%\title[title for header]{title}
+%\titlenote{}
+\authorlist{%
+ \authorentry{Haehyun Cho}{n}{1}\MembershipNumber{}
+ % \authorentry{name}{membership}{affiliate label}\MembershipNumber{}
+% \authorentry{name}{membership}{affiliate label}[present affiliate label]\MembershipNumber{}
+% \authorentry[e-mail address]{name}{membership}{affiliate label}\MembershipNumber{}
+% \authorentry[e-mail address]{name}{membership}{affiliate label}[present affiliate label]\MembershipNumber{}
+}
+\affiliate[1]{Soongsil University}
+%\paffiliate[present affiliate label]{Presently, the author is with the }
+
+\received{2022}{1}{1}
+\revised{2022}{1}{1}
+
+
+\begin{document}
+\maketitle
+
+\begin{summary}
+
+\end{summary}
+
+\begin{keywords}
+
+\end{keywords}
+
+\input{intro}
+\input{background}
+\input{design}
+\input{evaluation}
+\input{discussion}
+\input{relatedwork}
+\input{conclusion}
+% \input{ack}
+
+
+% \bibliographystyle{abbrv}
+\bibliographystyle{ieicetr}
+\bibliography{references}
+
+% \appendix
+% \input{appendix}
+
+\end{document}
