@@ -1,4 +1,4 @@
-% LLNCS DOCUMENT CLASS -- version 2.19 (31-Mar-2014)
+% LLNCS DOCUMENT CLASS -- version 2.22 (05-Sep-2022)
 % Springer Verlag LaTeX2e support for Lecture Notes in Computer Science
 %
 %%
@@ -19,7 +19,7 @@
 %%   Right brace   \}     Tilde         \~}
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{llncs}[2014/03/31 v2.19
+\ProvidesClass{llncs}[2022/09/05 v2.22
 ^^J LaTeX document class for Lecture Notes in Computer Science]
 % Options
 \let\if@envcntreset\iffalse
@@ -77,40 +77,40 @@
   \fi}
 %
 \def\switcht@albion{%
-\def\abstractname{Abstract.}%
-\def\ackname{Acknowledgement.}%
-\def\andname{and}%
-\def\lastandname{\unskip, and}%
-\def\appendixname{Appendix}%
-\def\chaptername{Chapter}%
-\def\claimname{Claim}%
-\def\conjecturename{Conjecture}%
-\def\contentsname{Table of Contents}%
-\def\corollaryname{Corollary}%
-\def\definitionname{Definition}%
-\def\examplename{Example}%
-\def\exercisename{Exercise}%
-\def\figurename{Fig.}%
-\def\keywordname{{\bf Keywords:}}%
-\def\indexname{Index}%
-\def\lemmaname{Lemma}%
-\def\contriblistname{List of Contributors}%
-\def\listfigurename{List of Figures}%
-\def\listtablename{List of Tables}%
-\def\mailname{{\it Correspondence to\/}:}%
-\def\noteaddname{Note added in proof}%
-\def\notename{Note}%
-\def\partname{Part}%
-\def\problemname{Problem}%
-\def\proofname{Proof}%
-\def\propertyname{Property}%
-\def\propositionname{Proposition}%
-\def\questionname{Question}%
-\def\remarkname{Remark}%
-\def\seename{see}%
-\def\solutionname{Solution}%
-\def\subclassname{{\it Subject Classifications\/}:}%
-\def\tablename{Table}%
+\def\abstractname{Abstract.}
+\def\ackname{Acknowledgement.}
+\def\andname{and}
+\def\lastandname{\unskip, and}
+\def\appendixname{Appendix}
+\def\chaptername{Chapter}
+\def\claimname{Claim}
+\def\conjecturename{Conjecture}
+\def\contentsname{Table of Contents}
+\def\corollaryname{Corollary}
+\def\definitionname{Definition}
+\def\examplename{Example}
+\def\exercisename{Exercise}
+\def\figurename{Fig.}
+\def\keywordname{{\bf Keywords:}}
+\def\indexname{Index}
+\def\lemmaname{Lemma}
+\def\contriblistname{List of Contributors}
+\def\listfigurename{List of Figures}
+\def\listtablename{List of Tables}
+\def\mailname{{\it Correspondence to\/}:}
+\def\noteaddname{Note added in proof}
+\def\notename{Note}
+\def\partname{Part}
+\def\problemname{Problem}
+\def\proofname{Proof}
+\def\propertyname{Property}
+\def\propositionname{Proposition}
+\def\questionname{Question}
+\def\remarkname{Remark}
+\def\seename{see}
+\def\solutionname{Solution}
+\def\subclassname{{\it Subject Classifications\/}:}
+\def\tablename{Table}
 \def\theoremname{Theorem}}
 \switcht@albion
 % Names of theorem like environments are already defined
@@ -374,7 +374,7 @@ You should not use \verb|\subparagraph| with this class.\vskip0.5cm}
 \let\footnotesize\small
 
 \if@custvec
-\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+\DeclareRobustCommand\vec[1]{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
 {\mbox{\boldmath$\textstyle#1$}}
 {\mbox{\boldmath$\scriptstyle#1$}}
 {\mbox{\boldmath$\scriptscriptstyle#1$}}}
@@ -875,8 +875,10 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
    \or \ddagger\ddagger \else\@ctrerr\fi}}
 
 \def\inst#1{\unskip$^{#1}$}
+\def\orcidID#1{\unskip$^{[#1]}$} % added MR 2018-03-10
 \def\fnmsep{\unskip$^,$}
 \def\email#1{{\tt#1}}
+
 \AtBeginDocument{\@ifundefined{url}{\def\url#1{#1}}{}%
 \@ifpackageloaded{babel}{%
 \@ifundefined{extrasenglish}{}{\addto\extrasenglish{\switcht@albion}}%
@@ -884,8 +886,12 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
 \@ifundefined{extrasgerman}{}{\addto\extrasgerman{\switcht@deutsch}}%
 \@ifundefined{extrasngerman}{}{\addto\extrasngerman{\switcht@deutsch}}%
 }{\switcht@@therlang}%
-\providecommand{\keywords}[1]{\par\addvspace\baselineskip
+\providecommand{\keywords}[1]{\def\and{{\textperiodcentered} }%
+\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}%
+\@ifpackageloaded{hyperref}{%
+\def\doi#1{\href{https://doi.org/\detokenize{#1}}{\url{https://doi.org/#1}}}}{
+\def\doi#1{https://doi.org/\detokenize{#1}}}
 }
 \def\homedir{\~{ }}
 
@@ -946,6 +952,8 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
 %
     \if!\the\tocauthor!\relax
       {\def\and{\noexpand\protect\noexpand\and}%
+       \def\inst##1{}%    added MR 2017-09-20 to remove inst numbers from the TOC
+       \def\orcidID##1{}% added MR 2017-09-20 to remove ORCID ids from the TOC
       \protected@xdef\toc@uthor{\@author}}%
     \else
       \def\\{\noexpand\protect\noexpand\newline}%
@@ -961,7 +969,9 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
        \else
          \edef\@author{\the\authorrunning}%
        \fi
-       \global\setbox\authrun=\hbox{\small\unboldmath\@author\unskip}%
+       \global\setbox\authrun=\hbox{\def\inst##1{}%    added MR 2017-09-20 to remove inst numbers from the runninghead
+                                    \def\orcidID##1{}% added MR 2017-09-20 to remove ORCID ids from the runninghead
+                                    \small\unboldmath\@author\unskip}%
        \ifdim\wd\authrun>\instindent
           \typeout{Names of authors too long for running head. Please supply}%
           \typeout{a shorter form with \string\authorrunning\space prior to
